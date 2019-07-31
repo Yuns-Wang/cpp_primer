@@ -1,0 +1,6 @@
+*.gch
+*.out
+*/.vscode/*
+*/build*/*
+build*/*
+*/CMakeLists.txt*
