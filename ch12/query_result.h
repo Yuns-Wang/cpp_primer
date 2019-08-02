@@ -21,7 +21,7 @@ class QueryResult
 {
 public:
     QueryResult(){}
-    QueryResult(shared_ptr<vector<string>> fc_sharedptr, shared_ptr<set<int>> rl_sharedptr, shared_ptr<int> rc_sharedptr, string search_word):
+    QueryResult(shared_ptr<vector<string>> fc_sharedptr, shared_ptr<map<string, set<int>>> rl_sharedptr, shared_ptr<map<string, int>> rc_sharedptr, string search_word):
         qr_fc_sharedptr(fc_sharedptr), qr_rl_sharedptr(rl_sharedptr), qr_rc_sharedptr(rc_sharedptr), qr_search_word(search_word)
     {}
     string get_word()
@@ -30,30 +30,33 @@ public:
     }
     int get_counts()
     {
-        return *qr_rc_sharedptr;
+        return (*qr_rc_sharedptr).at(qr_search_word);
     }
     shared_ptr<vector<string>> get_file()
     {
         return qr_fc_sharedptr;
     }
-    shared_ptr<set<int>> get_lines()
+    shared_ptr<map<string, set<int>>> get_lines()
     {
         return qr_rl_sharedptr;
     }
 private:
     string qr_search_word;
     shared_ptr<vector<string>> qr_fc_sharedptr;//file contents
-    shared_ptr<set<int>> qr_rl_sharedptr;//results lines
-    shared_ptr<int> qr_rc_sharedptr;//results counts
+    shared_ptr<map<string, set<int>>> qr_rl_sharedptr;//results lines
+    shared_ptr<map<string, int>> qr_rc_sharedptr;//results counts
 };
 
-void print(std::ostream &os, QueryResult qr)
+void print(std::ostream &os, QueryResult &qr)
 {
     //
-    cout << qr.get_word() << " occurs " << qr.get_counts() << " times:" << endl;
-    for(auto rl_set_beg = (*(qr.get_lines())).cbegin(); rl_set_beg != (*(qr.get_lines())).cend(); ++rl_set_beg)
+    string word = qr.get_word();
+    os << word << " occurs " << qr.get_counts() << " times:" << endl;
+    auto rl_set_beg = (*(qr.get_lines())).at(word).cbegin();
+    auto rl_set_end = (*(qr.get_lines())).at(word).cend();
+    for(; rl_set_beg != rl_set_end; ++rl_set_beg)
     {
-        cout << "(line " << *rl_set_beg + 1 << ") " << (*(qr.get_file()))[*rl_set_beg + 1] << endl;
+        os << "(line " << *rl_set_beg + 1 << ") " << (*(qr.get_file()))[*rl_set_beg + 1] << endl;
     }
 }
 

@@ -17,20 +17,18 @@ void runQueries(ifstream &infile);
 int main()
 {
     cout << "testquery" << endl;
-    ifstream infile("/home/wys/code/cpp_primer_ch12/text_query_1.h");
+    ifstream infile("/home/wys/code/cpp_primer/ch12/text_query_1.h");
     runQueries(infile);
 }
 
 void runQueries(ifstream &infile)
 {
     TextQuery tq(infile);
-    string search;
-    cout << "Please input the word to query:" << endl;
-    while(cin >> search)
+    while(true)
     {
-        if (search == "q") break;
-        QueryResult qr = tq.query(search);
-        print(cout, qr);
         cout << "Please input the word to query:" << endl;
+        string search;
+        if (!(cin >> search) || search == "q") break;
+        print(cout, tq.query(search));
     }
 }
