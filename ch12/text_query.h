@@ -28,7 +28,7 @@ class TextQuery
 public:
     TextQuery(){}
     TextQuery(ifstream &);
-    QueryResult & query(const string &) const;
+    QueryResult query(const string &) const;
 
     shared_ptr<vector<string>> get_fc() const
     {
@@ -90,12 +90,12 @@ TextQuery::TextQuery(ifstream & ifs)
 //    }
 }
 
-QueryResult & TextQuery::query(const string &search_word) const
+QueryResult TextQuery::query(const string &search_word) const
 {
     //
-    cout << "QueryResult to be constructed!";
+    cout << "going into the query function" << endl;
     QueryResult result(get_fc(), get_rl(), get_rc(), search_word);
-    cout << "QueryResult constructed!";
+    cout << "leaving the query function, QueryResult constructed!" << endl;
     return result;
 }
 

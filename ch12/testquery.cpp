@@ -29,6 +29,7 @@ void runQueries(ifstream &infile)
         cout << "Please input the word to query:" << endl;
         string search;
         if (!(cin >> search) || search == "q") break;
+        //cout << search << endl;
         print(cout, tq.query(search));
     }
 }
