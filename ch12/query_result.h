@@ -27,6 +27,15 @@ public:
         cout << "QueryResult constructor" << endl;
         cout << qr_search_word << endl;
     }
+    void test_constructor()
+    {
+        cout << "function test_constructor" << endl;
+        auto map_it = qr_rc_sharedptr->cbegin();
+        while(map_it != qr_rc_sharedptr->cend())
+        {
+            cout << map_it->first << "," << map_it->second << endl;
+        }
+    }
     string get_word()
     {
         cout << "get_word() function" << endl;
@@ -55,6 +64,7 @@ private:
 void print(std::ostream &os, QueryResult qr)
 {
     cout << "going into the print function" << endl;
+    qr.test_constructor();
     string word = qr.get_word();
     cout << word << endl;
     os << word << " occurs " << qr.get_counts() << " times:" << endl;

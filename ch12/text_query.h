@@ -84,16 +84,21 @@ TextQuery::TextQuery(ifstream & ifs)
 //        cout << map_it->first << endl;
 //    }
 
-//    cout << "results_counts:" << endl;
-//    for (auto map_it = results_counts.cbegin(); map_it != results_counts.cend(); ++map_it) {
-//        cout << map_it->first << " , " << map_it->second << endl;
-//    }
+    cout << "results_counts:" << endl;
+    for (auto map_it = results_counts.cbegin(); map_it != results_counts.cend(); ++map_it) {
+        cout << map_it->first << " , " << map_it->second << endl;
+    }
 }
 
 QueryResult TextQuery::query(const string &search_word) const
 {
     //
     cout << "going into the query function" << endl;
+    auto map_it = get_rc()->cbegin();
+    while(map_it != get_rc()->cend())
+    {
+        cout << map_it->first << "," << map_it->second << endl;
+    }
     QueryResult result(get_fc(), get_rl(), get_rc(), search_word);
     cout << "leaving the query function, QueryResult constructed!" << endl;
     return result;
