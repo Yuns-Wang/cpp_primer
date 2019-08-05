@@ -12,7 +12,7 @@ int main()
 {
     string file;
     string search;
-    file = "/home/wys/code/cpp_primer/ch12/ch12_27_1/text_query_1.h";
+    file = "/home/wys/code/cpp_primer/ch12/e27_1/text_query_1.h";
     while (true)
     {
         cout << "Please input the word to search:" << endl;
