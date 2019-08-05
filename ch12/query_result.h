@@ -51,7 +51,6 @@ private:
 void print(std::ostream &os, QueryResult qr)
 {
     string word = qr.get_word();
-    cout << word << endl;
     os << word << " occurs " << qr.get_counts() << " times:" << endl;
     auto rl_set_beg = (*(qr.get_lines()))[word].cbegin();
     auto rl_set_end = (*(qr.get_lines()))[word].cend();

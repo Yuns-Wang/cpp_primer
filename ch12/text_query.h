@@ -82,7 +82,6 @@ TextQuery::TextQuery(ifstream & ifs)
 QueryResult TextQuery::query(const string search_word) const
 {
     QueryResult result(get_fc(), get_rl(), get_rc(), search_word);
-    cout << "leaving the query function, QueryResult constructed!" << endl;
     return result;
 }
 

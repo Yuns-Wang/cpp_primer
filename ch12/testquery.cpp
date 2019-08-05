@@ -23,11 +23,6 @@ int main()
 void runQueries(ifstream &infile)
 {
     TextQuery tq(infile);
-    cout << "results_counts:" << endl;
-    for (auto map_it = tq.get_rc()->cbegin(); map_it != tq.get_rc()->cend(); ++map_it) {
-        cout << map_it->first << " , " << map_it->second << endl;
-    }
-
     while(true)
     {
         cout << "Please input the word to query:" << endl;
