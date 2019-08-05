@@ -22,19 +22,8 @@ public:
     TextQuery1(string, string);
 
 	void search();
-
-	void test()
-	{
-		for(string s : file_contents)
-		{
-			cout << s << endl;
-		}
-	}
-	
 	void print_results()
 	{
-		//cout << "The word " << search_word << " appears" << count << " times" << " in the file." << endl;
-
 		cout << count << endl;
 		set<int>::iterator set_it = results.begin();
 		while (set_it != results.end())
@@ -47,7 +36,7 @@ public:
 private:
 	vector<string> file_contents;
 	string search_word;
-	//int count(0); //错误？
+    //int count(0); //错误？因为在函数外使用这种形式会被理解为函数定义。
 	int count = 0;
 	set<int> results;
 };
@@ -74,7 +63,6 @@ void TextQuery1::search()
 		istringstream isstream(file_contents[i]);
 		while (isstream >> single_word)
 		{
-	//		cout << single_word << " , " << search_word << endl;
 			std::size_t found = single_word.find(search_word);
 			if (found != string::npos)
 			{

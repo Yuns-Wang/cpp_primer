@@ -28,7 +28,7 @@ class TextQuery
 public:
     TextQuery(){}
     TextQuery(ifstream &);
-    QueryResult query(const string) const;
+    QueryResult query(const string&) const;
 
     shared_ptr<vector<string>> get_fc() const
     {
@@ -79,7 +79,7 @@ TextQuery::TextQuery(ifstream & ifs)
 
 }
 
-QueryResult TextQuery::query(const string search_word) const
+QueryResult TextQuery::query(const string &search_word) const//string 使用引用
 {
     QueryResult result(get_fc(), get_rl(), get_rc(), search_word);
     return result;
