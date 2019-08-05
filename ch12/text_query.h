@@ -28,7 +28,7 @@ class TextQuery
 public:
     TextQuery(){}
     TextQuery(ifstream &);
-    QueryResult query(const string &) const;
+    QueryResult query(const string) const;
 
     shared_ptr<vector<string>> get_fc() const
     {
@@ -47,9 +47,9 @@ private:
     map<string, set<int>> results_lines;
     map<string, int> results_counts;
 
-    shared_ptr<vector<string>> fc_shared = make_shared<vector<string>>(file_contents);
-    shared_ptr<map<string,set<int>>> rl_shared = make_shared<map<string,set<int>>>(results_lines);
-    shared_ptr<map<string, int>> rc_shared = make_shared<map<string, int>>(results_counts);
+    shared_ptr<vector<string>> fc_shared;
+    shared_ptr<map<string,set<int>>> rl_shared;
+    shared_ptr<map<string, int>> rc_shared;
 };
 
 TextQuery::TextQuery(ifstream & ifs)
@@ -73,32 +73,14 @@ TextQuery::TextQuery(ifstream & ifs)
         }
     }
 
-    //test the constructor
-//    cout << "file_contents:" << endl;
-//    for (string str : file_contents) {
-//        cout << str << endl;
-//    }
+    fc_shared = make_shared<vector<string>>(file_contents);
+    rl_shared = make_shared<map<string,set<int>>>(results_lines);
+    rc_shared = make_shared<map<string, int>>(results_counts);
 
-//    cout << "results_lines:" << endl;
-//    for (auto map_it = results_lines.cbegin(); map_it != results_lines.cend(); ++map_it) {
-//        cout << map_it->first << endl;
-//    }
-
-    cout << "results_counts:" << endl;
-    for (auto map_it = results_counts.cbegin(); map_it != results_counts.cend(); ++map_it) {
-        cout << map_it->first << " , " << map_it->second << endl;
-    }
 }
 
-QueryResult TextQuery::query(const string &search_word) const
+QueryResult TextQuery::query(const string search_word) const
 {
-    //
-    cout << "going into the query function" << endl;
-    auto map_it = get_rc()->cbegin();
-    while(map_it != get_rc()->cend())
-    {
-        cout << map_it->first << "," << map_it->second << endl;
-    }
     QueryResult result(get_fc(), get_rl(), get_rc(), search_word);
     cout << "leaving the query function, QueryResult constructed!" << endl;
     return result;

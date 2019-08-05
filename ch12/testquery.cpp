@@ -16,7 +16,6 @@ void runQueries(ifstream &infile);
 
 int main()
 {
-    cout << "testquery" << endl;
     ifstream infile("/home/wys/code/cpp_primer/ch12/text_query_1.h");
     runQueries(infile);
 }
@@ -24,12 +23,16 @@ int main()
 void runQueries(ifstream &infile)
 {
     TextQuery tq(infile);
+    cout << "results_counts:" << endl;
+    for (auto map_it = tq.get_rc()->cbegin(); map_it != tq.get_rc()->cend(); ++map_it) {
+        cout << map_it->first << " , " << map_it->second << endl;
+    }
+
     while(true)
     {
         cout << "Please input the word to query:" << endl;
         string search;
         if (!(cin >> search) || search == "q") break;
-        //cout << search << endl;
         print(cout, tq.query(search));
     }
 }
