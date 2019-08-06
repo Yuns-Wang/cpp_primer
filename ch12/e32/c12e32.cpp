@@ -1,4 +1,5 @@
 #include <iostream>
+#include "str_blob.h"
 
 using namespace std;
 
