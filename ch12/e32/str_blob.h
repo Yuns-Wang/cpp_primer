@@ -11,7 +11,7 @@ class StrBlob
 {
 public:
     typedef std::vector<std::string>::size_type size_type;
-    StrBlob()=default;
+    StrBlob();
     StrBlob(std::initializer_list<std::string>);
     bool empty(){return contents->empty();}
     size_type size(){return contents->size();}

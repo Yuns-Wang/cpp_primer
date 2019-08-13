@@ -1,11 +1,18 @@
 #include <string>
 #include <iostream>
+#include <memory>
+#include <vector>
+#include <string>
 
 #include "str_blob.h"
 
 using std::string;
+using std::vector;
 using std::cout;
 using std::endl;
+using std::make_shared;
+
+StrBlob::StrBlob():contents(make_shared<vector<string>>()){}
 
 void StrBlob::check(size_type sz, const string &s) const
 {

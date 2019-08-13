@@ -9,7 +9,7 @@ using std::set;
 using std::istringstream;
 using std::shared_ptr;
 
-TextQuery::TextQuery(ifstream& ifs):file()
+TextQuery::TextQuery(ifstream& ifs)
 {
     string line;
     string word;
