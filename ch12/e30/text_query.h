@@ -23,6 +23,9 @@ private:
 class QueryResult {
 public:
     QueryResult(std::string, std::shared_ptr<std::vector<std::string>>, std::shared_ptr<std::set<TextQuery::line_no>>);//line_no
+    std::set<TextQuery::line_no>::iterator begin(){ return lines->begin();}
+    std::set<TextQuery::line_no>::iterator end() { return lines->end(); }
+    std::shared_ptr<std::vector<std::string>> get_file() { return file; }
     friend std::ostream& print(std::ostream&, const QueryResult&);//&, const
 private:
     std::string sought;
