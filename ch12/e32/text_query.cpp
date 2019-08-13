@@ -9,14 +9,14 @@ using std::set;
 using std::istringstream;
 using std::shared_ptr;
 
-TextQuery::TextQuery(ifstream& ifs):file(new vector<string>)
+TextQuery::TextQuery(ifstream& ifs):file()
 {
     string line;
     string word;
     line_no n{0};
     while (getline(ifs, line))
     {
-        file->push_back(line);
+        file.push_back(line);
         ++n;
         istringstream iss(line);
         while (iss >> word)
@@ -43,15 +43,15 @@ QueryResult TextQuery::query(const string& seek_word) const
     }
 }
 
-QueryResult::QueryResult(string sought_word, shared_ptr<vector<string>> file_ptr, shared_ptr<set<TextQuery::line_no>> lines_ptr)
-    :sought(sought_word), file(file_ptr), lines(lines_ptr){}
+QueryResult::QueryResult(string sought_word, StrBlob file_blob, shared_ptr<set<TextQuery::line_no>> lines_ptr)
+    :sought(sought_word), file(file_blob), lines(lines_ptr){}
 
 ostream &print(ostream &os, const QueryResult &qr)
 {
     os << qr.sought << " occurs " << qr.lines->size() << " times:" << std::endl;
     for(auto n : *(qr.lines))
     {
-        os << "(line " << n << ") " << (*(qr.file))[n] << std::endl;
+        os << "(line " << n << ") " << qr.file.at(n) << std::endl;
         //os << "(line " << n << ") " << *(qr.file->begin() + n - 1) << std::endl;
     }
     return os;
