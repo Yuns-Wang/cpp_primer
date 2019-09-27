@@ -13,3 +13,9 @@ GCC compiler:
 #### [Ex03](hello_world.cpp)
 
 ---
+
+#### 练习 1.14
+
+* for与while: for多用在循环次数已知的情况下，while用在次数未知的情况；
+
+* while与do-while: 先执行结构还是先进行判断；
