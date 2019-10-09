@@ -10,8 +10,7 @@ int main()
         {4, 5, 6, 7},
         {8, 9, 10, 11}
     };
-    using int_arr = int[4];
-    for (int_arr &a : ia)
+    for (auto &a : ia)
         for (int i : a)
             cout << i << " ";
     cout << endl;
@@ -21,7 +20,7 @@ int main()
             cout << ia[i][j] << " ";
     cout << endl;
     cout << "======================" << endl;
-    for (int_arr *a = ia; a < std::end(ia); ++a)
+    for (auto *a = ia; a < std::end(ia); ++a)
         for (int *i = *a; i < std::end(*a); ++i)
             cout << *i << " ";
     cout << endl;
