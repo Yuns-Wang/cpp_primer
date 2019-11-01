@@ -1,6 +1,17 @@
 #include <iostream>
-#include "Sales_data.h"
-using namespace std;
+
+using std::string;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::cerr;
+
+struct Sales_data
+{
+    string bookNo;
+    unsigned units_sold = 0;
+    double revenue = 0;
+};
 
 int main() {
     Sales_data total;
