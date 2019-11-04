@@ -4,30 +4,30 @@
 #include <string>
 #include <iostream>
 
-struct Sales_data {
-    std::string bookNo;
-    unsigned units_sold = 0;
-    double revenue = 0.0;
+class Sales_data;
+std::istream &read(std::istream &is, Sales_data&);
 
+class Sales_data {
+    friend Sales_data add(const Sales_data&, const Sales_data&);
+    friend std::istream &read(std::istream &is, Sales_data &s);
+    friend std::ostream &print(std::ostream&, const Sales_data&);
+    public:
 	Sales_data() = default;
 	Sales_data(std::string s, unsigned n, double d) : bookNo(s), units_sold(n), revenue(n * d){}
-	Sales_data(std::istream &is);
+	Sales_data(std::istream &is)
+	{
+        read(is, *this);
+	}
 	Sales_data(std::string s) : bookNo(s) {}
 
     Sales_data& combine(const Sales_data&);
     std::string isbn() const {return bookNo;};
-};
 
-Sales_data::Sales_data(std::istream &is)
-{
-	if (is >> bookNo)
-	{
-		double d;
-		if (is >> units_sold)
-			is >>d;
-		revenue = d * units_sold;
-	}
-}
+    private:
+    std::string bookNo;
+    unsigned units_sold = 0;
+    double revenue = 0.0;
+};
 
 Sales_data add(const Sales_data &a, const Sales_data &b)
 {

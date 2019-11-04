@@ -1,5 +1,6 @@
 *.gch
 *.out
+*.exe
 */.vscode/*
 */build*/*
 build*/*

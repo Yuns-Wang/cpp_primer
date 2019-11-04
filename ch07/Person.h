@@ -4,13 +4,20 @@
 #include <string>
 #include <iostream>
 
+//注意声明的顺序
+struct Person;
+std::istream &read(std::istream &is, Person &p);
+
 struct Person
 {
+    Person() = default;
+    Person(std::string n, std::string a):name(n), address(a){}
+    Person(std::istream os){read(os, *this);}//构造函数中也可以使用this
     std::string name;
     std::string address;
     //get函数返回string&
-    std::string &getName() const {return name;}
-    std::string &getAddress() const {return address;}
+    std::string getName() const {return name;}
+    std::string getAddress() const {return address;}
 };
 
 std::istream &read(std::istream &is, Person &p)

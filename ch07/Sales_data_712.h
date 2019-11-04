@@ -11,23 +11,21 @@ struct Sales_data {
 
 	Sales_data() = default;
 	Sales_data(std::string s, unsigned n, double d) : bookNo(s), units_sold(n), revenue(n * d){}
-	Sales_data(std::istream &is);
+	Sales_data(std::istream &is)
+	{
+		if (is >> bookNo)
+		{
+			double d;
+			if (is >> units_sold)
+				is >>d;
+			revenue = d * units_sold;
+		}
+	}
 	Sales_data(std::string s) : bookNo(s) {}
 
     Sales_data& combine(const Sales_data&);
     std::string isbn() const {return bookNo;};
 };
-
-Sales_data::Sales_data(std::istream &is)
-{
-	if (is >> bookNo)
-	{
-		double d;
-		if (is >> units_sold)
-			is >>d;
-		revenue = d * units_sold;
-	}
-}
 
 Sales_data add(const Sales_data &a, const Sales_data &b)
 {
