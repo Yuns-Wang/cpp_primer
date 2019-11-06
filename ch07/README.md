@@ -140,3 +140,179 @@
 #### 练习 7.32
 
 [c07e32.cpp](c07e32.cpp)
+
+#### 练习 7.33
+
+`pos`无法找到
+
+#### 练习 7.34
+
+`pos`无法找到，返回类型、参数列表中出现的名字需要已经声明。
+
+#### 练习 7.35
+
+[c07e35.h](c07e35.h)
+
+类型不应该重复定义，虽然编译器不会报错。
+
+#### 练习 7.36
+
+```c++
+strrct X {
+    X(int i, int j) : base(i), rem(i % j) {}
+    int rem, base;
+};
+```
+
+#### 练习 7.37
+
+```c++
+Sales_data fist_item(cin); //Sales_data(std::istream &is);
+内容为cin的输入内容
+```
+
+```c++
+Sales_data next; //Sales_data(std::string = "");
+bookNo : ""
+units_sold : 0
+revenue : 0
+```
+
+```c++
+
+Sales_data last("999-999-999"); //Sales_data(std::stirng = "");
+bookNo : "999-999-999"
+units_sold : 0
+revenue : 0
+```
+
+#### 练习 7.38
+
+`Sales_data(std::istream &is = std::cin);`
+
+#### 练习 7.39
+
+不合法，需要默认初始化时无法区分两个构造函数。
+
+#### 练习 7.40
+
+[Vehicle.h](Vehicle.h)
+
+#### 练习 7.41
+
+[Sales_data_741.h](Sales_data_741.h) | [c07e41.cpp](c07e41.cpp)
+
+#### 练习 7.42
+
+[Vehicle.h](Vehicle.h)
+
+#### 练习 7.43
+
+```c++
+C()
+{
+    nd = NoDefault(i);
+}
+```
+
+#### 练习 7.44
+
+不合法，NoDefault无默认构造函数，无法执行默认初始化
+
+#### 练习 7.45
+
+合法，C有默认构造函数
+
+#### 练习 7.46
+
+(a) 错误，没有构造函数时，编译器会生成一个默认构造函数
+
+(b) 错误，`A(std::string = "")`
+
+(c) 错误，
+
+(d) 错误，只有当没有定义任何构造函数时，编译器才会生成
+
+#### 练习 7.47
+
+依据情况而定，如果Sales_data代表一本书，则可以使用explicit。如果代表一条记录则不能使用explicit
+
+缺点是：explicit丧失了一部分灵活性
+
+#### 练习 7.48
+
+**两种情况均不涉及隐式转换**
+
+`Sales_item item1(null_isbn)` **正常调用单string的构造函数**
+
+`Sales_item item2("9-99-999-9")` **正确，cosnt char\* 转换为 string, 然后正常调用构造**
+
+#### 练习 7.49
+
+(a) s被隐式转换为临时Sales_data，后者被值传递给函数之后销毁
+
+(b) **错误，不能执行 临时对象到非常量引用 的转换**
+
+(c) 声明错误，const函数不能返回非常量Sales_data
+
+#### 练习 7.50
+
+[Person_750.h](Person_750.h)
+
+#### 练习 7.51
+
+vector 使用隐式转换，意义不明
+
+string 从const char * 到 string 的转换则很正常
+
+#### 练习 7.52
+
+聚合类特点：
+
+* 所有成员都是public
+
+* 没有任何构造函数
+
+* 没有任何类内初始值
+
+* 没有基类，也没有virtual函数
+
+所以，应该取消Sales_data 的类内初始值。
+
+#### 练习 7.53
+
+[Debug.h](Debug.h)
+
+#### 练习 7.54
+
+c++11中，constexpr函数默认是const的，所以set** 函数不能声明为constexpr的
+
+#### 练习 7.55
+
+不是，string不是字面值类型
+
+#### 练习 7.56
+
+static成员：不属于任何一个对象，而是属于整个类。
+
+优点：可以应用于一些特殊用途，如计数、不需要每个类对象要开辟空间存储、一次改变后所有类都可以使用
+
+区别：static成员可以使用类名访问、static成员不能再类内初始化，也不能用构造函数初始化、static成员可以作为默认参数、是不完全类型
+
+#### 练习 7.57
+
+[Account.h](Account.h)
+
+#### 练习 7.58
+
+```c++
+class Example {
+    public:
+    static constexpr double rate = 6.5;
+    static const int vecSize = 20;
+    static vector<double> vec();
+};
+
+double d = Example::rate;
+vector<double> Example::vec(Exaple::vecSize);
+```
