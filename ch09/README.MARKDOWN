@@ -258,3 +258,19 @@ vector<int> vi(it1, it2);//拷贝it1到it2之间的值
 ## 练习 9.48
 
 `string::npos`
+
+## 练习 9.49
+
+[c09e49.cpp](c09e49.cpp)
+
+## 练习 9.50
+
+[c09e50.cpp](c09e50.cpp)
+
+## 练习 9.51
+
+[c09e51.cpp](c09e51.cpp)
+
+## 练习 9.52
+
+[c09e52.cpp](c09e52.cpp)
