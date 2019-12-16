@@ -3,13 +3,15 @@
 #include <iostream>
 #include <string>
 #include <stack>
+#include <sstream>
 
 using std::string;
 using std::cout;
 using std::endl;
 using std::stack;
+using std::istringstream;
 
-int calc_no_par(string s)
+char calc_no_par(string s)
 {
     return '$';
 }
