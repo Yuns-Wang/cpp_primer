@@ -115,3 +115,61 @@ auto fun = [i](int j) {return i + j;};//i是此lambda所在函数内的局部变
     * `mutable` 加在参数列表结尾位置，并不会改变捕获变量本身的值，只是用于多次调用该函数之间改变捕获的值，该关键字只对值捕获有意义。
 
     * 引用捕获才会改变捕获变量本身的值，多次调用引用捕获函数时，如果改变了捕获值，则函数内的值和值本身同时改变，因为他们本质上是一样的。
+
+## 练习 10.22
+
+[c10e22.cpp](c10e22.cpp)
+
+## 练习 10.23
+
+`newcallable = bind(callable, arglist)`
+
+至少一个参数，arglist中的参数被用来调用callable
+
+## 练习 10.24
+
+[c10e24.cpp](c10e24.cpp)
+
+## 练习 10.25
+
+[c10e25.cpp](c10e25.cpp)
+
+## 练习 10.26
+
+* `back_inserter` : 调用 `push_back` 向容器中添加元素。
+* `front_inserter` : 调用 `push_front` 添加元素
+* `inserter` : 调用 `insert` 添加元素
+
+## 练习 10.27
+
+[c10e27.cpp](c10e27.cpp)
+
+* `unique_copy` 依旧是只能分辨 ***相邻*** 的重复的元素
+
+## 练习 10.28
+
+[c10e28.cpp](c10e28.cpp)
+
+* 插入、流、反向、移动迭代器定义在头文件 `iterator` 之中。
+* `inserter(container, iter)` 插入到 `iter` 指向的元素之前。
+
+## 练习 10.29
+
+[c10e29.cpp](c10e29.cpp)
+
+* 两种方案
+    * 使用 `*iter++` 依次将元素 `push_back` 进容器中
+    * 直接使用范围初始化容器
+    * copy(iter, eof, front_inserter)
+
+## 练习 10.30
+
+[c10e30.cpp](c10e30.cpp)
+
+## 练习 10.31
+
+[c10e31.cpp](c10e31.cpp)
+
+## 练习 10.32
+
+[c10e32.cpp](c10e32.cpp)
