@@ -166,10 +166,74 @@ auto fun = [i](int j) {return i + j;};//i是此lambda所在函数内的局部变
 
 [c10e30.cpp](c10e30.cpp)
 
+* 使用 `copy` 和流迭代器输出。
+
 ## 练习 10.31
 
 [c10e31.cpp](c10e31.cpp)
 
+* 使用 `unique_copy` 和流迭代器输出。
+
+
 ## 练习 10.32
 
 [c10e32.cpp](c10e32.cpp)
+
+## 练习 10.33
+
+[c10e33.cpp](c10e33.cpp)
+
+## 练习 10.34
+
+[c10e34.cpp](c10e34.cpp)
+
+## 练习 10.35
+
+[c10e35.cpp](c10e35.cpp)
+
+## 练习 10.36
+
+[c10e36.cpp](c10e36.cpp)
+
+* `list` `forward_list` 的迭代器不支持 `+` `-` 操作！
+
+## 练习 10.37
+
+[c10e37.cpp](c10e37.cpp)
+
+## 练习 10.38
+
+* 输入迭代器  读  *只能存在于右侧、->、==、！=、++ 
+* 输出迭代器  写  * 可以存在于左侧
+* 前向迭代器  前移  
+* 双向迭代器  双向  --
+* 随机访问迭代器  随机访问  >、 <、+、-、下标
+
+## 练习 10.39
+
+* list 双向迭代器
+* vector  随机访问迭代器
+
+## 练习 10.40
+
+* copy  ~~~前向迭代器~~~第一个区间 输入迭代器，第二个区间 输出迭代器
+* reverse  ~~~随机访问迭代器~~~双向迭代器
+* unique  ~~~双向迭代器~~~前向迭代器
+
+## 练习 10.41
+
+* 从 beg 到 end 区间内，寻找每个等于 old_val 的元素，替换为 new_val
+* 从 beg 到 end 区间内，寻找每个使 pred 为真的元素 ，替换为 new_val
+* 从 beg 到 end 区间内，~~~复制每个元素到 dest 及“之后（++）”的空间中，并寻找每个 old_val ，替换为 new_val~~~ 寻找每个等于 old_val 的元素，替换为 new_val 之后存放到 dest 及“之后（++）”的空间中
+* 从 beg 到 end 区间内，~~~复制每个元素到 dest 及“之后（++）”的空间中，并寻找每个使 pred 为真的元素，替换为 new_val~~~ 寻找每个使 pred 为真的元素，替换为 new_val 之后存放到 dest 及“之后（++
+
+## 练习 10.42
+
+```c++
+void elimDups(list<string> &words)
+{
+    //words.sort(words.begin(), words.end());//错误调用
+    words.sort();
+    words.unique();
+}
+```
