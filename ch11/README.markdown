@@ -89,3 +89,78 @@ map<string, int> :: iterator iter = m.begin();
 ## 练习 11.18
 
 `map<string, int>::const_iterator`
+
+## 练习 11.19
+
+`multiset<Sales_data, bool (*)(const Sales_data&, const Sales_data&)>::const_iterator`
+
+## 练习 11.20
+
+[c11e20.cpp](c11e20.cpp)
+
+使用下标的版本更容易。
+
+下标操作可以包含 插入未存在的元素、递增已存在的元素 两方面功能。
+
+## 练习 11.21
+
+插入新读取的单词，如果已经存在则递增，否则使其值为1。
+
+## 练习 11.22
+
+`std::pair<std::string, std::vector<int>>`
+
+`std::pair<std::map<std::string, std::vector<int>>::iterator, bool>`
+
+## 练习 11.23
+
+`multimap<string, vector<string>>`
+
+## 练习 11.24
+
+在m中插入 键值对 0-1
+
+## 练习 11.25
+
+编译通过但是运行出错，访问越界
+
+## 练习 11.26
+
+`map<string, size_t>`
+
+`string` 
+
+`size_t`
+
+## 练习 11.27
+
+* `count` 统计某关键字元素的数量
+* `find` 在容器中寻找某关键字元素位置
+
+## 练习 11.28
+
+`map<string, vector<int>> smap;`
+
+`map<string, vector<int>>::iterator des = smap.find("ni");`
+
+## 练习 11.29
+
+* `upper_bound` ~~~返回尾后迭代器~~~返回第一个可以安全插入该元素的位置
+* `lower_bound` ~~~返回尾后迭代器~~~同上
+* `equal_range` ~~返回 `pair<c.end(), c.end()>`~~ 返回可安全插入位置的pair
+
+## 练习 11.30
+
+pos.first 代表 `equal_range` 返回第一个迭代器，对其 `->second` 代表访问 map 的对应值。
+
+## 练习 11.31
+
+[c11e31.cpp](c11e31.cpp)
+
+## 练习 11.32
+
+[c11e32.cpp](c11e31.cpp)
+
+## 练习 11.33
+
+[c11.33.cpp](c11e33.cpp)
