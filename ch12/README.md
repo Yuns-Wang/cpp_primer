@@ -6,7 +6,21 @@ b1 有4个元素，b2已经度过生命周期。
 
 ## 练习 12.2
 
-[strblob.h](strblob.h)
+[str_blob.h](str_blob.h) | [str_blob.cpp](str_blob.cpp)
+
+## 练习 12.3
+
+可以定义 `const` 版本，但是不需要
+
+`StrBlob` 的成员为 `shared_ptr`，此时 `const` 是顶层 `const`，与底层容器的操作无关。
+
+## 练习 12.4
+
+i 的类型为 `size_type` 不可能为负数。它是`unsigned`
+
+## 练习 12.5
+
+使此类使用方便，可以使用复制形式的 {} 列表初始化，但是程序会变得不易懂。（编译器会执行自动转换）
 
 ## 练习 12.27
 
