@@ -22,6 +22,10 @@ i 的类型为 `size_type` 不可能为负数。它是`unsigned`
 
 使此类使用方便，可以使用复制形式的 {} 列表初始化，但是程序会变得不易懂。（编译器会执行自动转换）
 
+## 练习 12.6
+
+[c12e06.cpp](c12e06.cpp)
+
 ## 练习 12.27
 
 [主函数](e27/testquery.cpp) | [TextQuery](e27/text_query.h) | [QueryResult](e27/query_result.h)
