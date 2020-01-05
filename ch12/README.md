@@ -26,6 +26,23 @@ i 的类型为 `size_type` 不可能为负数。它是`unsigned`
 
 [c12e06.cpp](c12e06.cpp)
 
+## 练习 12.7
+
+[c12e07.cpp](c12e07.cpp)
+
+## 练习 12.8
+
+~~p所指向的int未被初始化，是未定义的，不能使用。~~
+
+内存泄漏，p 被转换为 bool， 无法被 delete。
+
+## 练习 12.9
+
+* r 和 q 均指向自由空间中 42 的 int 值，但是原来 r 指向的 100 的 int 值内存泄漏。
+
+* r2 原来指向的内存被释放，现在 r2 和 q2 都指向原来 q2 指向的内存。
+
+
 ## 练习 12.27
 
 [主函数](e27/testquery.cpp) | [TextQuery](e27/text_query.h) | [QueryResult](e27/query_result.h)
