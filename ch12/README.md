@@ -70,6 +70,23 @@ i 的类型为 `size_type` 不可能为负数。它是`unsigned`
 
 sp空悬指针
 
+## 练习 12.14
+
+```c++
+struct destination;
+struct connection;
+connection connect(destination*);
+void disconnect(connection);
+void end_connection(connectin*);
+
+void f(destination &d)
+{
+    connection c = connect(&d);
+    shared_ptr<connection> sp_c(c, end_connectin);
+}
+```
+[c12e14.cpp](c12e14.cpp)
+
 ## 练习 12.27
 
 [主函数](e27/testquery.cpp) | [TextQuery](e27/text_query.h) | [QueryResult](e27/query_result.h)
