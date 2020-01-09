@@ -87,6 +87,10 @@ void f(destination &d)
 ```
 [c12e14.cpp](c12e14.cpp)
 
+## 练习 12.15
+
+[c12e15.cpp](c12e15.cpp)
+
 ## 练习 12.27
 
 [主函数](e27/testquery.cpp) | [TextQuery](e27/text_query.h) | [QueryResult](e27/query_result.h)
