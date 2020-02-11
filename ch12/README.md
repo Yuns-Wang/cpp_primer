@@ -50,13 +50,15 @@ i 的类型为 `size_type` 不可能为负数。它是`unsigned`
 
 ~~不正确~~
 
-正确
+正确，`process(shared_ptr<int>(p))` 中，临时构造了一个 `shared_ptr<int>` ，由p构造，所以两个shared_ptr指向同一内存。
+
+[c12e10.cpp](c12e10.cpp)
 
 `process(p);`
 
 ## 练习 12.11
 
-使 p 变为空悬指针。
+使 p 变为空悬指针。通过`shared_ptr<int>(p.get())` 构造了一个与原`shared_ptr` 相互独立但是指向同一内存的`shared_ptr`，调用结束后会`delete`这块农村，导致`p`空悬。
 
 ## 练习 12.12
 
