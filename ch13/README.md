@@ -21,9 +21,13 @@
 ## 练习 13.4
 
 `Point foo_bar(Point arg)` 参数传递
+
 `Point local = arg` "="形式初始化
+
 `*heap = new Point(global);` 参数传递
+
 `Point pa[4] = {local, *heap}` {}初始化数组
+
 `return *heap` 函数返回
 
 ## [练习 13.5](has_ptr.h)
@@ -85,3 +89,5 @@
 ## 练习 13.17
 
 [13.14](c13e14.cpp) | [13.15](c13e15.cpp) | [13.16](c13e16.cpp)
+
+## [练习 13.18](c13e18.cpp)
