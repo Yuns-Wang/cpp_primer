@@ -93,3 +93,16 @@
 ## [练习 13.18](c13e18.cpp)
 
 ## [练习 13.19](c13e19.cpp)
+
+## 练习 13.20
+
+* *QueryResult* : 
+
+   \ | sought | file |lines
+   -|-|-|-
+   拷贝 | 构造新的string | 构造新的StrBlob，但是其contents指向相同内存 | 构造新的shared_ptr，指向相同内存
+   赋值 | | |
+   销毁 | | |
+
+
+* *TextQuery* : 
